@@ -13,7 +13,7 @@ const path = require("path");
 // ============================================================
 // Define the folder where the .txt documents are stored
 // Make sure doc1.txt ... doc5.txt are in the same folder as this script
-const DOCS_FOLDER = __dirname;
+const DOCS_FOLDER = path.join(__dirname, '../data');
 
 /**
  * Reads all .txt files from the given folder.
@@ -138,5 +138,4 @@ for (const [filename, tokens] of Object.entries(cleanedDocuments)) {
   const originalWords = documents[filename].trim().split(/\s+/).length;
   console.log(`  ${filename}: ${originalWords} original words -> ${tokens.length} tokens after cleaning`);
 }
-const fs = require("fs");
-const path = require("node:path");
+module.exports = { cleanedDocuments };
